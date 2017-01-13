@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+    componentDidMount() {
+        axios
+            .get('/search')
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
   render() {
     return (
       <div className="App">
