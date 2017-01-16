@@ -4,16 +4,16 @@ import logo from './images/logo.svg';
 import './App.css';
 
 class App extends Component {
-    componentDidMount() {
-        axios
-            .get('/search')
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
+  componentDidMount() {
+    axios
+      .get('/search')
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   render() {
     return (
       <div className="App">
