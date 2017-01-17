@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import logo from './images/logo.svg';
-import './App.css';
+import logo from '../images/logo.svg';
+import '../styles/App.css';
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +21,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>TRADEAWAY WEB</h2>
         </div>
+        {this.props.children}
       </div>
     );
   }

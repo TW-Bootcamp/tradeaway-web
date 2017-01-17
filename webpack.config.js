@@ -10,7 +10,10 @@ module.exports = {
 	plugins: [new HtmlWebpackPlugin({
 		template:'./public/index.html',
         favicon:'./public/favicon.ico'
-	})],
+	}),new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery"
+  })],
     devServer: {
         inline:true,
         port: 8888
@@ -23,11 +26,11 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
 	module: {
-  		preLoaders:[{
-            test: /\.jsx$/, // include .js files
-            exclude: /(node_modules|bower_components)/,
-            loader: "eslint-loader"
-        }],
+  		// preLoaders:[{
+       //      test: /\.jsx$/, // include .js files
+       //      exclude: /(node_modules|bower_components)/,
+       //      loader: "eslint-loader"
+       //  }],
 		loaders: [
 			{
 				test: /\.jsx?$/,
@@ -35,13 +38,17 @@ module.exports = {
 				loader: 'babel-loader'
 			},
 			{
-				test: /\.(jpe?g|png|gif|svg)$/i,
+				test: /\.(jpe?g|png|gif)$/i,
                 exclude: /(node_modules|bower_components)/,
 				loaders: [
 					'file?hash=sha512&digest=hex&name=/img/[hash].[ext]',
 					'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
 				]
 			},
+            {
+            	test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+				loader: 'url-loader?limit=100000'
+            },
 			{
 				test: /\.css$/,
 				loader: 'style!css'
