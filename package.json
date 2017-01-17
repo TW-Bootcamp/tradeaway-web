@@ -43,8 +43,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "prebuild": "karma start",
-    "test": "karma start --singleRun=false",
+    "test": "karma start",
     "build": "webpack"
   }
 }
