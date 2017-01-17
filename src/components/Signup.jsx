@@ -52,7 +52,7 @@ class Login extends Component {
           </div>
           <div className="sign-up-button-area">
             <button className="btn btn-raised btn-primary" type="submit">Submit</button>
-            <button className="btn btn-raised btn-primary" type="submit">Cancel</button>
+            <Link to="/" className="btn btn-raised btn-primary">Cancel</Link>
           </div>
         </form>
       </div>
