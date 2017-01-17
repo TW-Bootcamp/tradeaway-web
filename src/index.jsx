@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory, hashHistory } from 'react-router';
 import routes from './routes';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
@@ -12,5 +12,5 @@ import './styles/index.css';
 $.material.init()
 
 ReactDOM.render(
-  <Router history={browserHistory} routes={routes} />,
+  <Router history={hashHistory} routes={routes} />,
   document.getElementById('root'));

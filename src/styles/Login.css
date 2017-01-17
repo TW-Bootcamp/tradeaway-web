@@ -16,11 +16,12 @@
     justify-content: flex-end;
 }
 
-.login-box .form-group label.control-label{
+.App .form-group label.control-label{
     font-size: 20px;
     margin-top: 0;
     color: #00aa9a;
     text-align: left;
+    cursor: pointer;
 }
 
 .login-section{
