@@ -2,10 +2,10 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes';
 
-export function loginSuccess(userDetails) {
+export function loginSuccess(response) {
     return {
         type: types.LOGIN_SUCCESS,
-        payload: userDetails
+        payload: response.token
     };
 }
 export function loginFailed(message) {
@@ -17,8 +17,8 @@ export function loginFailed(message) {
 export function login(userDetails) {
     return ((dispatch) => {
         axios.post('/api/auth', userDetails)
-            .then((response) => dispatch(loginSuccess(response)))
-            .catch((error) => dispatch(loginFailed(error.response.message)))
+            .then((response) => dispatch(loginSuccess(response.data)))
+            .catch((error) => dispatch(loginFailed(error.data.message)))
     });
 
 }

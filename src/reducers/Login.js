@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
                 success: true
             };
         case types.LOGIN_FAILED:
-            return {success: false, message: action.message};
+            return {success: false, message: action.payload};
         default:
             return state;
     }
