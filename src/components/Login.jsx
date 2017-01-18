@@ -30,14 +30,10 @@ export class Login extends Component {
         this.props.loginActions.login(payload);
     }
 
-    componentWillReceiveProps() {
-        if (this.props.loginState.success && this.props.loginState.login.success === false) {
+    componentWillReceiveProps(nextProps) {
+        if (!this.props.loginState.success) {
             alert("Invalid username,password!");
         }
-    }
-
-    componentWillMount(oldProps, newProps) {
-        console.log(oldProps, newProps, this.props.loginState);
     }
 
     render() {

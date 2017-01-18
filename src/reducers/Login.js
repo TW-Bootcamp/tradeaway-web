@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes';
 const initialState = {};
-const login = (state = initialState, action) => {
+export default (state = initialState, action) => {
     switch (action.type) {
         case types.LOGIN:
             return {
@@ -13,5 +13,3 @@ const login = (state = initialState, action) => {
             return state;
     }
 };
-
-export default login;
