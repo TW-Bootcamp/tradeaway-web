@@ -26,7 +26,7 @@ export class Login extends Component {
 
     login(e) {
         e.preventDefault();
-        let payload = {email: this.refs.email.value, password: this.refs.password.value};
+        let payload = {username: this.refs.username.value, password: this.refs.password.value};
         this.props.loginActions.login(payload);
     }
 
@@ -43,10 +43,10 @@ export class Login extends Component {
                     <h2 className="text-center"> Welcome to TradeAway </h2>
                     <div className="login-section">Existing User :</div>
                     <div className="form-group">
-                        <label htmlFor="inputEmail" className="col-md-2 control-label">Email</label>
+                        <label htmlFor="inputEmail" className="col-md-2 control-label">Username</label>
                         <div className="col-md-10">
-                            <input type="email" className="form-control" id="inputEmail" placeholder="Email"
-                                   ref="email" required="required"/>
+                            <input type="text" className="form-control" id="inputEmail" placeholder="Username"
+                                   ref="username" required="required"/>
                         </div>
                     </div>
                     <div className="form-group">
