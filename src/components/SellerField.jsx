@@ -7,7 +7,7 @@ class SellerField extends Component {
         <div className="form-group required">
           <label htmlFor="inputPAN" className="col-md-4 control-label">PAN No.</label>
           <div className="col-md-8">
-            <input type="text" className="form-control" id="inputPAN" placeholder="PAN Number"
+            <input ref="pan" type="text" className="form-control" id="inputPAN" placeholder="PAN Number"
                     required="required"/>
           </div>
         </div>
@@ -16,12 +16,12 @@ class SellerField extends Component {
           <label htmlFor="inputExperienceYears" className="col-md-4 control-label">Experience</label>
           <div className="row col-md-8">
             <div className="col-md-3">
-              <input type="number" className="form-control" id="inputExperienceYears" max={99} min={0}
+              <input ref="experienceInYears" type="number" className="form-control" id="inputExperienceYears" max={99} min={0}
                      required="required"/>
             </div>
             <label className="col-md-3 control-label">Years</label>
             <div className="col-md-3">
-              <input type="number" className="form-control" id="inputExperienceMonths" max={11} min={1}
+              <input ref="experienceInMonths" type="number" className="form-control" id="inputExperienceMonths" max={11} min={1}
                      required="required"/>
             </div>
             <label className="col-md-3 control-label">Months</label>
