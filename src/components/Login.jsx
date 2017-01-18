@@ -2,7 +2,6 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import '../styles/Login.css';
 
 import * as loginActions from '../actions/LoginActions'
 
@@ -34,11 +33,9 @@ export class Login extends Component {
         if (this.props.loginState.success) {
             // alert("Success");
             this.props.router.push('/seller')
-            // this.props.loginActions.user(this.props.loginState.authToken);
         }
         if (this.props.loginState.user) {
             alert("Success");
-            // this.props.dispatch(push('/seller'));
         }
     }
 
@@ -58,7 +55,7 @@ export class Login extends Component {
         return (
             <div className="login-box">
                 <form className="form-horizontal" onSubmit={this.login.bind(this)}>
-                    <h2 className="text-center"> Welcome to TradeAway </h2>
+                    <h2 className="text-center">Welcome to TradeAway</h2>
                     {this.props.loginState.success === false ? this.errMessage() : ""}
                     <div className="login-section">Existing User :</div>
                     <div className="form-group">
@@ -90,6 +87,6 @@ Login.propTypes = {
     loginActions: PropTypes.object,
     router: React.PropTypes.shape({
         push: React.PropTypes.func.isRequired
-    }).isRequired
+    })
 };
 export default connect(stateToProps, dispatchToProps)(Login);

@@ -11,6 +11,8 @@ import 'bootstrap-material-design/dist/css/ripples.css';
 import "bootstrap-material-design/dist/js/material.js";
 import 'bootstrap-material-design/dist/js/ripples.js';
 import './styles/index.css';
+import './styles/Login.css';
+
 
 import {createAppStore} from './store/store';
 const store = createAppStore();
