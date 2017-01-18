@@ -28,7 +28,7 @@ export function userFailure(message) {
 }
 export function login(userDetails) {
     return ((dispatch) => {
-        axios.post('/api/auth', userDetails)
+        return axios.post('/api/auth', userDetails)
             .then((response) => dispatch(loginSuccess(response.data && response.data.token)))
             .catch((error) => dispatch(loginFailed(error.response && error.response.data && error.response.data.message)))
     });
@@ -36,7 +36,7 @@ export function login(userDetails) {
 
 export function user(token) {
     return ((dispatch) => {
-        axios.get('/api/user', {
+        return axios.get('/api/user', {
             headers: {"Authorization": token}
         })
             .then((response) => dispatch(userSuccess(response.data)))
