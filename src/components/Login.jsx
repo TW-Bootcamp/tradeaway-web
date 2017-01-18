@@ -46,15 +46,15 @@ export class Login extends Component {
                     <h2 className="text-center"> Welcome to TradeAway </h2>
                     <div className="login-section">Existing User :</div>
                     <div className="form-group">
-                        <label htmlFor="inputEmail" className="col-md-2 control-label">Username</label>
-                        <div className="col-md-10">
+                        <label htmlFor="inputEmail" className="col-md-4 control-label">Username</label>
+                        <div className="col-md-8">
                             <input type="text" className="form-control" id="inputEmail" placeholder="Username"
                                    ref="username" required="required"/>
                         </div>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="inputPassword" className="col-md-2 control-label">Password</label>
-                        <div className="col-md-10">
+                        <label htmlFor="inputPassword" className="col-md-4 control-label">Password</label>
+                        <div className="col-md-8">
                             <input type="password" className="form-control" id="inputPassword" placeholder="Password"
                                    ref="password" required="required"/>
                         </div>
