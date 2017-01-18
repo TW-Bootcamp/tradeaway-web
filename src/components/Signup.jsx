@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import '../styles/Signup.css';
 
-class Login extends Component {
+class Signup extends Component {
   render() {
     return (
       <div className="signup-box">
@@ -60,4 +60,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default Signup;
