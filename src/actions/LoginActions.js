@@ -16,7 +16,7 @@ export function loginFailed(message) {
 }
 export function login(userDetails) {
     return ((dispatch) => {
-        axios.post('/api/users/auth', userDetails)
+        axios.post('/api/auth', userDetails)
             .then((response) => dispatch(loginSuccess(response)))
             .catch((error) => dispatch(loginFailed(error.response.message)))
     });
