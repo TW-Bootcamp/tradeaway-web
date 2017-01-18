@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import {connect} from 'react-redux';
 import UserType from './UserType';
+import {bindActionCreators} from 'redux';
+import * as signupActions from '../actions/SignupActions'
 import '../styles/Signup.css';
+
+
+function stateToProps(state) {
+  return {
+    signupState: state.signup
+  };
+}
+
+function dispatchToProps(dispatch) {
+  return {
+    signupActions: bindActionCreators(signupActions, dispatch),
+  };
+}
 
 class Signup extends Component {
 
@@ -19,21 +35,31 @@ class Signup extends Component {
     }
     delete payload.usertype;
     if(this.state.type === "buyer"){
+      payload.authority = "role_buyer";
       let buyer = this.refs.usertype.refs.buyer;
       payload.gender = buyer.refs.gender.value;
       payload.dob = `${buyer.refs.year.value}-${buyer.refs.month.value}-${buyer.refs.day.value}`;
     }
 
     if(this.state.type === "seller"){
+      payload.authority = "role_seller";
       let seller = this.refs.usertype.refs.seller;
       payload.pan = seller.refs.pan.value;
       payload.experienceInMonths = seller.refs.experienceInMonths.value;
       payload.experienceInYears = seller.refs.experienceInYears.value;
     }
+
+    this.props.signupActions.signup(payload);
   }
 
   selectType(e){
     this.setState({type: e.target.value});
+  }
+
+  componentDidUpdate() {
+    if (this.props.signupState.success) {
+      this.props.router.push('/')
+    }
   }
 
   render() {
@@ -86,7 +112,7 @@ class Signup extends Component {
           <div className="form-group required">
             <label htmlFor="inputType" className="col-md-4 control-label">Type</label>
             <div className="col-md-8">
-              <select ref="type" id="inputType" className="form-control" onChange={this.selectType.bind(this)}>
+              <select ref="authority" id="inputType" className="form-control" onChange={this.selectType.bind(this)}>
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
               </select>
@@ -101,9 +127,12 @@ class Signup extends Component {
             </div>
           </div>
         </form>
+        <div className={this.props.signupState.success ? "show": "hide"}>
+          <h3> Authenticated Successfully. <Link to="/"> Click here to go to login page </Link></h3>
+        </div>
       </div>
     );
   }
 }
 
-export default Signup;
+export default connect(stateToProps, dispatchToProps)(Signup);

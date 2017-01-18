@@ -1,23 +1,23 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes';
 
-export function loginSuccess(token) {
+export function signupSuccess(data) {
   return {
-    type: types.LOGIN_SUCCESS,
-    payload: token
+    type: types.SIGNUP_SUCCESS,
+    payload: data
   };
 }
-export function loginFailed(message) {
+export function signupFailed(data) {
   return {
-    type: types.LOGIN_FAILED,
-    payload: message
+    type: types.SIGNUP_FAILED,
+    payload: data
   };
 }
-export function login(userDetails) {
+export function signup(userDetails) {
   return ((dispatch) => {
-    axios.post('/api/auth', userDetails)
-      .then((response) => dispatch(loginSuccess(response.data || response.data.token)))
-      .catch((error) => dispatch(loginFailed(error.data || error.data.message)))
+    axios.post('/user/register', userDetails)
+      .then((response) => dispatch(signupSuccess(response.data)))
+      .catch((error) => dispatch(signupFailed(error.data)))
   });
 
 }
