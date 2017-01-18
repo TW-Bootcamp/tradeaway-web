@@ -8,6 +8,12 @@
 }
 
 .sign-up-button-area{
+    margin-top: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.form-group.required .control-label:before, .required-label:before {
+    content:"*";
+    color:red;
 }
