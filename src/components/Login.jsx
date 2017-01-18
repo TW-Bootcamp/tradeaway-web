@@ -30,13 +30,28 @@ export class Login extends Component {
         this.props.loginActions.login(payload);
     }
 
-    componentWillReceiveProps(nextProps) {
-
+    componentDidUpdate() {
         if (this.props.loginState.success) {
-            alert("You are successfully logged in!");
-        }else{
-            alert("Invalid username,password!");
+            // alert("Success");
+            this.props.router.push('/seller')
+            // this.props.loginActions.user(this.props.loginState.authToken);
         }
+        if (this.props.loginState.user) {
+            alert("Success");
+            // this.props.dispatch(push('/seller'));
+        }
+    }
+
+    errMessage() {
+        return (
+            <div className="alert alert-dismissible alert-danger" role="alert">
+                <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Error!</h4>
+                <p>Either your username/password is incorrect or email is not verified!</p>
+            </div>
+        );
     }
 
     render() {
@@ -44,6 +59,7 @@ export class Login extends Component {
             <div className="login-box">
                 <form className="form-horizontal" onSubmit={this.login.bind(this)}>
                     <h2 className="text-center"> Welcome to TradeAway </h2>
+                    {this.props.loginState.success === false ? this.errMessage() : ""}
                     <div className="login-section">Existing User :</div>
                     <div className="form-group">
                         <label htmlFor="inputEmail" className="col-md-4 control-label">Username</label>
@@ -71,6 +87,9 @@ export class Login extends Component {
 }
 Login.propTypes = {
     loginState: PropTypes.object,
-    loginActions: PropTypes.object
+    loginActions: PropTypes.object,
+    router: React.PropTypes.shape({
+        push: React.PropTypes.func.isRequired
+    }).isRequired
 };
 export default connect(stateToProps, dispatchToProps)(Login);
