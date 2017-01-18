@@ -31,7 +31,10 @@ export class Login extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (!this.props.loginState.success) {
+
+        if (this.props.loginState.success) {
+            alert("You are successfully logged in!");
+        }else{
             alert("Invalid username,password!");
         }
     }
