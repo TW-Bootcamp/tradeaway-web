@@ -6,7 +6,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 success: true,
-                authToken: action.payload,
+                authToken: action.payload.token,
+                role: action.payload.authority,
             };
         case types.LOGIN_FAILED:
         case types.USER_FAILED:

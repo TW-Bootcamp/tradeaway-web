@@ -13,9 +13,9 @@ describe('Login Reducer', () => {
         expect(
             reducer({}, {
                 type: types.LOGIN_SUCCESS,
-                payload: "foobarbaz"
+                payload: {token:"foobarbaz",authority:"ROLE_SELLER"}
             })
-        ).toEqual({success: true, authToken: "foobarbaz"});
+        ).toEqual({success: true, authToken: "foobarbaz", role:"ROLE_SELLER"});
     });
     it('should handle LOGIN_FAILED', () => {
         expect(

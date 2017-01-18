@@ -49,10 +49,10 @@ describe('actions', () => {
     it("should fire login api call", () => {
         var mock = new MockAdapter(axios);
         var payload = {username: "user1", password: "pass1"};
-        mock.onPost("/api/auth", payload).reply(200, {token: "foobarbaz"});
+        mock.onPost("/api/auth", payload).reply(200, {token: "foobarbaz", authority: "ROLE_SELLER"});
 
         const expectedActions = [
-            {type: types.LOGIN_SUCCESS, payload: "foobarbaz"},
+            {type: types.LOGIN_SUCCESS, payload: {token: "foobarbaz", authority: "ROLE_SELLER"}},
         ];
 
         const store = mockStore({login: {}})

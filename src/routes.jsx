@@ -4,11 +4,13 @@ import App from './components/App';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Seller from './components/Seller';
+import Buyer from './components/Buyer';
 
 export default (
     <Route path="/" component={App}>
         <IndexRoute component={Login}/>
         <Route path="signup" component={Signup}/>
         <Route path="seller" component={Seller}/>
+        <Route path="buyer" component={Buyer}/>
     </Route>
 );

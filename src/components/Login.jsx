@@ -2,6 +2,8 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {ROLE_BUYER, ROLE_SELLER} from '../constants/User';
+import {BUYER_LANDING_PAGE, SELLER_LANDING_PAGE} from '../constants/Route';
 
 import * as loginActions from '../actions/LoginActions'
 
@@ -31,11 +33,13 @@ export class Login extends Component {
 
     componentDidUpdate() {
         if (this.props.loginState.success) {
-            // alert("Success");
-            this.props.router.push('/seller')
-        }
-        if (this.props.loginState.user) {
-            alert("Success");
+            switch (this.props.loginState.role) {
+                case ROLE_SELLER:
+                    this.props.router.push(SELLER_LANDING_PAGE);
+                    break;
+                case ROLE_BUYER:
+                    this.props.router.push(BUYER_LANDING_PAGE);
+            }
         }
     }
 

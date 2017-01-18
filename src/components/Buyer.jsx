@@ -13,7 +13,7 @@ function dispatchToProps(dispatch) {
     return {};
 }
 
-export class Seller extends Component {
+export class Buyer extends Component {
     constructor(props) {
         super(props);
     }
@@ -21,13 +21,13 @@ export class Seller extends Component {
     render() {
         return (
             <div>
-                <h3>Welcome Seller!</h3>
+                <h3>Welcome Buyer!</h3>
             </div>
         );
     }
 }
 
-Seller.propTypes = {
+Buyer.propTypes = {
     user: PropTypes.object
 };
-export default connect(stateToProps, dispatchToProps)(Seller);
+export default connect(stateToProps, dispatchToProps)(Buyer);
