@@ -61,9 +61,6 @@ class Signup extends Component {
     return (
       <div className="signup-box">
           <h2 className="form-signup-heading">New User Registration</h2>
-        <div className={this.props.signupState.success === true ? "show": "hide"}>
-          <h3> Authenticated Successfully. <Link to={INDEX_ROUTE}> Click here to go to login page </Link></h3>
-        </div>
         <form className="form-horizontal" onSubmit={this.signup.bind(this)}>
           <div className="form-group required">
             <label htmlFor="inputName" className="col-md-4 control-label">Name</label>
@@ -117,6 +114,9 @@ class Signup extends Component {
             </div>
           </div>
           <UserType ref="usertype" type={this.state.type}></UserType>
+          <div className={this.props.signupState.success === true ? "show": "hide"}>
+            <h5> Authenticated Successfully. <Link to={INDEX_ROUTE}> Click here to go to login page </Link></h5>
+          </div>
           <div className="sign-up-button-area">
             <div className="required-label">Mandatory fields</div>
             <div>
