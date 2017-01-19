@@ -2,6 +2,12 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes';
 
+export function localLogin() {
+    return {
+        type: types.TRY_LOGIN,
+    };
+}
+
 export function loginSuccess(payload) {
     return {
         type: types.LOGIN_SUCCESS,
@@ -42,4 +48,8 @@ export function user(token) {
             .then((response) => dispatch(userSuccess(response.data)))
             .catch((error) => dispatch(userFailure(error.response && error.response.data && error.response.data.message)));
     });
+}
+
+export function tryLogin() {
+    return dispatch(tryLogin());
 }

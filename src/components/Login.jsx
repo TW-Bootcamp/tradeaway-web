@@ -43,6 +43,10 @@ export class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        this.loginActions.tryLogin();
+    }
+
     errMessage() {
         return (
             <div className="alert alert-dismissible alert-danger" role="alert">
