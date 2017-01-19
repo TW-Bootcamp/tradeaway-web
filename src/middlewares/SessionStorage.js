@@ -1,10 +1,14 @@
-import {LOGIN_SUCCESS} from '../constants/ActionTypes'
+import {LOGIN_SUCCESS, LOGOUT} from '../constants/ActionTypes'
 export const login = store => next => action => {
-    if (action.types === LOGIN_SUCCESS) {
-        sessionStorage.setItem("token", action.payload.token);
-        sessionStorage.setItem("role", action.payload.authority);
-    }
     let result = next(action);
+    const state = store.getState();
+    if (action.type === LOGIN_SUCCESS) {
+        sessionStorage.setItem("token", state.login.authToken);
+        sessionStorage.setItem("role", state.login.role);
+    }
+    if (action.type === LOGOUT) {
+        sessionStorage.clear();
+    }
     return result
 };
 
