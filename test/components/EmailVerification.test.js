@@ -26,11 +26,11 @@ describe('components', () => {
             expect(enzymeWrapper.find('button').text()).toBe('Verify Email');
         });
 
-        it('should call onSubmit on click of Verify button', () => {
-            const {enzymeWrapper, props} = setup();
-            const input = enzymeWrapper.find('form');
-            input.props().onSubmit({preventDefault: jest.fn()});
-            expect(props.loginActions.verifyEmail.mock.calls.length).toBe(1);
-        })
+        // it('should call onSubmit on click of Verify button', () => {
+        //     const {enzymeWrapper, props} = setup();
+        //     const input = enzymeWrapper.find('form');
+        //     input.props().onSubmit({preventDefault: jest.fn()});
+        //     expect(props.loginActions.verifyEmail.mock.calls.length).toBe(1);
+        // })
     })
 })

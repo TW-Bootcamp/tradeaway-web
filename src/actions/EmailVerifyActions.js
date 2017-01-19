@@ -12,7 +12,6 @@ export function verifyFailed() {
         type: types.EMAIL_VERIFY_FAILED,
     };
 }
-//http://10.131.20.202:8080
 
 export function verifyEmail(verificationDetails) {
     return ((dispatch) => {
