@@ -42,6 +42,14 @@ export class Buyer extends Component {
         this.props.logout();
     }
 
+    buyer() {
+
+        return this.props.categories.length ? this.props.categories.map(function (c) {
+                return <option key={c.id}
+                               value={c.name}>{c.name}</option>;
+            }) : "";
+    }
+
     render() {
 
         return (
@@ -49,12 +57,7 @@ export class Buyer extends Component {
                 <h3>Welcome Buyer!</h3>
 
                 <select>
-                    {
-                        this.props.categories.map(function (c) {
-                            return <option key={c.id}
-                                           value={c.name}>{c.name}</option>;
-                        })
-                    }
+                    {this.buyer()}
                 </select>
                 <br/>
                 <button onClick={this.logout.bind(this)}>Logout</button>
