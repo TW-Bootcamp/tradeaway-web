@@ -15,7 +15,7 @@ export function signupFailed(data) {
 }
 export function signup(userDetails) {
   return ((dispatch) => {
-    axios.post('/user/register', userDetails)
+    axios.post('/api/user/register', userDetails)
       .then((response) => dispatch(signupSuccess(response.data)))
       .catch((error) => dispatch(signupFailed(error.data)))
   });
