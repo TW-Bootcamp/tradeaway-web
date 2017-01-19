@@ -3,13 +3,15 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as categoryActions from "../actions/CategoryActions";
 import {logout} from "../actions/LoginActions";
+import {ROLE_BUYER} from "../constants/User";
 
 
 function stateToProps(state) {
     return {
         user: state.user,
         categories: state.categories,
-        token: state.login.authToken
+        token: state.login.authToken,
+        role: state.login.role
     };
 }
 
@@ -30,6 +32,9 @@ export class Buyer extends Component {
 
     componentDidMount() {
         this.props.categoryActions.loadCategories(this.props.token);
+        if (!this.props.token || this.props.role !== ROLE_BUYER) {
+            this.props.router.push("/");
+        }
     }
 
     componentDidUpdate() {
