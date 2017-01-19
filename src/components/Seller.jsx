@@ -6,7 +6,7 @@ import {logout} from "../actions/LoginActions";
 function stateToProps(state) {
     return {
         user: state.user,
-        token: this.state.login.authToken
+        token: state.login.authToken
     };
 }
 
@@ -23,6 +23,7 @@ export class Seller extends Component {
 
     logout() {
         this.props.logout();
+        this.props.router.push("/");
     }
 
     componentDidUpdate() {

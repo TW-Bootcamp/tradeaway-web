@@ -45,7 +45,6 @@ export class Login extends Component {
                     this.props.router.push(BUYER_LANDING_PAGE);
             }
         }
-        // this.props.router.push(BUYER_LANDING_PAGE);
     }
 
     errMessage() {
