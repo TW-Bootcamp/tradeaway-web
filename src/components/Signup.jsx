@@ -35,6 +35,7 @@ class Signup extends Component {
       payload[ref] = this.refs[ref].value;
     }
     delete payload.usertype;
+    delete payload.confirmPassword;
     if(this.state.type === "buyer"){
       payload.authority = "role_buyer";
       let buyer = this.refs.usertype.refs.buyer;
@@ -56,6 +57,17 @@ class Signup extends Component {
   selectType(e){
     this.setState({type: e.target.value});
   }
+
+  confirmPasswordEqality(e){
+
+        if(this.refs.password.value!=='' && (this.refs.password.value === this.refs.confirmPassword.value)) {
+
+            this.setState({passwordEqality: true});
+        } else {
+
+            this.setState({passwordEqality: false});
+        }
+    }
 
   render() {
     return (
@@ -83,14 +95,17 @@ class Signup extends Component {
           <div className="form-group required">
             <label htmlFor="inputPassword" className="col-md-4 control-label">Password</label>
             <div className="col-md-8">
-              <input ref="password" type="password" className="form-control" id="inputPassword" placeholder="Password" required="required"/>
+              <input ref="password" type="password" onBlur={this.confirmPasswordEqality.bind(this)} className="form-control" id="inputPassword" placeholder="Password" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputConfirmPassword" className="col-md-4 control-label">Confirm Password</label>
             <div className="col-md-8">
-              <input type="password" className="form-control" id="inputConfirmPassword" placeholder="Confirm Password" required="required"/>
+              <input ref="confirmPassword" type="password" onBlur={this.confirmPasswordEqality.bind(this)} className="form-control" id="inputConfirmPassword" placeholder="Confirm Password" required="required"/>
             </div>
+          </div>
+          <div className={this.state.passwordEqality === false ? "show": "hide"}>
+            <div className="col-md-8 col-md-offset-4 error-text">Passwords does not match </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputAddress" className="col-md-4 control-label">Address</label>
@@ -120,7 +135,7 @@ class Signup extends Component {
           <div className="sign-up-button-area">
             <div className="required-label">Mandatory fields</div>
             <div>
-              <button className="btn btn-raised btn-primary" type="submit">Submit</button>
+              <button className="btn btn-raised btn-primary" disabled={!this.state.passwordEqality} type="submit">Submit</button>
               <Link to={INDEX_ROUTE} className="btn btn-raised btn-primary">Cancel</Link>
             </div>
           </div>
