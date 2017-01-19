@@ -4,7 +4,7 @@ class BuyerField extends Component {
   render() {
     return (
       <div>
-        <div className="form-group required">
+        <div className="form-group">
         <label htmlFor="inputGender" className="col-md-4 control-label">Gender</label>
         <div className="col-md-8">
           <select ref="gender" id="inputGender" className="form-control">
@@ -18,14 +18,14 @@ class BuyerField extends Component {
           <div className="col-md-2">
             <select ref="day" id="inputDOB" className="form-control">
               {[...Array(31)].map((x, i) =>
-                <option key={i} value={++i}>{i}</option>
+                <option key={i} value={('0'+ ++i).slice(-2)}>{('0'+i).slice(-2)}</option>
               )}
           </select>
           </div>
           <div className="col-md-2">
             <select ref="month" className="form-control">
               {[...Array(12)].map((x, i) =>
-                <option key={i} value={++i}>{i}</option>
+                <option key={i} value={('0'+ ++i).slice(-2)}>{('0'+i).slice(-2)}</option>
               )}
             </select>
           </div>
