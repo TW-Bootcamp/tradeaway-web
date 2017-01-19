@@ -70,49 +70,49 @@ class Signup extends Component {
           <div className="form-group required">
             <label htmlFor="inputName" className="col-md-4 control-label">Name</label>
             <div className="col-md-8">
-              <input ref="name" type="text" className="form-control" id="inputName" placeholder="Name" />
+              <input ref="name" type="text" className="form-control" id="inputName" placeholder="Name" required="required" />
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputEmail" className="col-md-4 control-label">Email Id</label>
             <div className="col-md-8">
-              <input ref="email" type="email" className="form-control" id="inputEmail" placeholder="email" />
+              <input ref="email" type="email" className="form-control" id="inputEmail" placeholder="email" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputUsername" className="col-md-4 control-label">Username</label>
             <div className="col-md-8">
-              <input ref="username" type="text" className="form-control" id="inputUsername" placeholder="username" />
+              <input ref="username" type="text" className="form-control" id="inputUsername" placeholder="username" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputPassword" className="col-md-4 control-label">Password</label>
             <div className="col-md-8">
-              <input ref="password" type="password" className="form-control" id="inputPassword" placeholder="Password" />
+              <input ref="password" type="password" className="form-control" id="inputPassword" placeholder="Password" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputConfirmPassword" className="col-md-4 control-label">Confirm Password</label>
             <div className="col-md-8">
-              <input type="password" className="form-control" id="inputConfirmPassword" placeholder="Confirm Password" />
+              <input type="password" className="form-control" id="inputConfirmPassword" placeholder="Confirm Password" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputAddress" className="col-md-4 control-label">Address</label>
             <div className="col-md-8">
-              <input ref="address" type="text" className="form-control" id="inputAddress" placeholder="Address" />
+              <input ref="address" type="text" className="form-control" id="inputAddress" placeholder="Address" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputMobile" className="col-md-4 control-label">Mobile</label>
             <div className="col-md-8">
-              <input ref="mobile" type="text" className="form-control" id="inputMobile" placeholder="Mobile"/>
+              <input ref="mobile" type="text" className="form-control" id="inputMobile" placeholder="Mobile" required="required"/>
             </div>
           </div>
           <div className="form-group required">
             <label htmlFor="inputType" className="col-md-4 control-label">Type</label>
             <div className="col-md-8">
-              <select ref="authority" id="inputType" className="form-control" onChange={this.selectType.bind(this)}>
+              <select ref="authority" id="inputType" className="form-control" required="required" onChange={this.selectType.bind(this)}>
                 <option value="buyer">Buyer</option>
                 <option value="seller">Seller</option>
               </select>
