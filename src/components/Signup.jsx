@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import UserType from './UserType';
 import {bindActionCreators} from 'redux';
 import * as signupActions from '../actions/SignupActions'
+import {INDEX_ROUTE} from '../constants/Route';
 import '../styles/Signup.css';
 
 
@@ -56,16 +57,13 @@ class Signup extends Component {
     this.setState({type: e.target.value});
   }
 
-  componentDidUpdate() {
-    if (this.props.signupState.success) {
-      this.props.router.push('/')
-    }
-  }
-
   render() {
     return (
       <div className="signup-box">
           <h2 className="form-signup-heading">New User Registration</h2>
+        <div className={this.props.signupState.success === true ? "show": "hide"}>
+          <h3> Authenticated Successfully. <Link to={INDEX_ROUTE}> Click here to go to login page </Link></h3>
+        </div>
         <form className="form-horizontal" onSubmit={this.signup.bind(this)}>
           <div className="form-group required">
             <label htmlFor="inputName" className="col-md-4 control-label">Name</label>
@@ -123,13 +121,10 @@ class Signup extends Component {
             <div className="required-label">Mandatory fields</div>
             <div>
               <button className="btn btn-raised btn-primary" type="submit">Submit</button>
-              <Link to="/" className="btn btn-raised btn-primary">Cancel</Link>
+              <Link to={INDEX_ROUTE} className="btn btn-raised btn-primary">Cancel</Link>
             </div>
           </div>
         </form>
-        <div className={this.props.signupState.success ? "show": "hide"}>
-          <h3> Authenticated Successfully. <Link to="/"> Click here to go to login page </Link></h3>
-        </div>
       </div>
     );
   }
