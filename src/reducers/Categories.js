@@ -11,6 +11,8 @@ export default (state = initialState, action) => {
                 success: false,
                 message: 'Error loading categories'
             };
+        case types.LOGOUT:
+            return initialState;
         default:
             return state;
     }
