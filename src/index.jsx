@@ -16,7 +16,7 @@ import './styles/Login.css';
 
 import {createAppStore} from './store/store';
 const store = createAppStore();
-const history = syncHistoryWithStore(browserHistory, store);
+const history = syncHistoryWithStore(hashHistory, store);
 $.material.init();
 
 ReactDOM.render(
