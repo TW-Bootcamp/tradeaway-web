@@ -15,16 +15,13 @@ export default (state = initialState, action) => {
             }
             return {...state};
         }
-        case types.LOGIN_SUCCESS: {
-            sessionStorage.setItem("token", action.payload.token);
-            sessionStorage.setItem("role", action.payload.authority);
+        case types.LOGIN_SUCCESS:
             return {
                 ...state,
                 success: true,
                 authToken: action.payload.token,
                 role: action.payload.authority,
             };
-        }
         case types.LOGIN_FAILED:
         case types.USER_FAILED:
             return {success: false, message: action.payload};
