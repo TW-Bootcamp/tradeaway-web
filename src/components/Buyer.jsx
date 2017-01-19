@@ -1,20 +1,22 @@
-import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as categoryActions from '../actions/CategoryActions';
+import React, {Component, PropTypes} from "react";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as categoryActions from "../actions/CategoryActions";
+import {logout} from "../actions/LoginActions";
+
 
 function stateToProps(state) {
     return {
         user: state.user,
-        categories : state.categories,
-        token:state.login.authToken
+        categories: state.categories,
+        token: state.login.authToken
     };
 }
 
 function dispatchToProps(dispatch) {
     return {
         categoryActions: bindActionCreators(categoryActions, dispatch),
+        logout: bindActionCreators(logout, dispatch),
     };
 }
 
@@ -26,8 +28,18 @@ export class Buyer extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.props.categoryActions.loadCategories(this.props.token);
+    }
+
+    componentDidUpdate() {
+        if (!this.props.token) {
+            this.props.router.push("/");
+        }
+    }
+
+    logout() {
+        this.props.logout();
     }
 
     render() {
@@ -44,6 +56,8 @@ export class Buyer extends Component {
                         })
                     }
                 </select>
+                <br/>
+                <button onClick={this.logout.bind(this)}>Logout</button>
 
             </div>
         );

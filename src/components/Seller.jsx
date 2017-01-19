@@ -1,16 +1,19 @@
-import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+import React, {Component, PropTypes} from "react";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {logout} from "../actions/LoginActions";
 
 function stateToProps(state) {
     return {
-        user: state.user
+        user: state.user,
+        token: this.state.login.authToken
     };
 }
 
 function dispatchToProps(dispatch) {
-    return {};
+    return {
+        logout: bindActionCreators(logout, dispatch),
+    };
 }
 
 export class Seller extends Component {
@@ -18,16 +21,31 @@ export class Seller extends Component {
         super(props);
     }
 
+    logout() {
+        this.props.logout();
+    }
+
+    componentDidUpdate() {
+        if (!this.props.token) {
+            this.props.router.push("/");
+        }
+    }
+
     render() {
         return (
             <div>
                 <h3>Welcome Seller!</h3>
+                <br/>
+                <button onClick={this.logout.bind(this)}>Logout</button>
             </div>
         );
     }
 }
 
 Seller.propTypes = {
-    user: PropTypes.object
+    user: PropTypes.object,
+    router: React.PropTypes.shape({
+        push: React.PropTypes.func.isRequired
+    })
 };
 export default connect(stateToProps, dispatchToProps)(Seller);

@@ -7,6 +7,11 @@ export function localLogin() {
         type: types.TRY_LOGIN,
     };
 }
+export function logout() {
+    return {
+        type: types.LOGOUT,
+    };
+}
 
 export function loginSuccess(payload) {
     return {
