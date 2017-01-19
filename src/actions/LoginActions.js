@@ -2,6 +2,12 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes';
 
+export function localLogin() {
+    return {
+        type: types.TRY_LOGIN,
+    };
+}
+
 export function loginSuccess(payload) {
     return {
         type: types.LOGIN_SUCCESS,

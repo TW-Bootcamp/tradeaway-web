@@ -31,6 +31,10 @@ export class Login extends Component {
         this.props.loginActions.login(payload);
     }
 
+    componentDidMount() {
+        this.props.loginActions.localLogin();
+    }
+
     componentDidUpdate() {
         if (this.props.loginState.success) {
             switch (this.props.loginState.role) {

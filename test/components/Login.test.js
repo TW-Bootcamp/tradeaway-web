@@ -5,7 +5,7 @@ import {Login} from '../../src/components/Login'
 function setup() {
     const props = {
         loginState: {},
-        loginActions: {login: jest.fn()}
+        loginActions: {login: jest.fn(), localLogin: jest.fn()}
     };
 
     const enzymeWrapper = mount(<Login {...props}/>);
@@ -42,7 +42,7 @@ describe('components', () => {
         it('should render err message when login fails', () => {
             const props = {
                 loginState: {success: false},
-                loginActions: {login: jest.fn()}
+                loginActions: {login: jest.fn(), localLogin: jest.fn()}
             };
             const enzymeWrapper = mount(<Login {...props}/>);
 
