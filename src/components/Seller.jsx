@@ -2,11 +2,13 @@ import React, {Component, PropTypes} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {logout} from "../actions/LoginActions";
+import {ROLE_SELLER} from "../constants/User";
 
 function stateToProps(state) {
     return {
         user: state.user,
-        token: state.login.authToken
+        token: state.login.authToken,
+        role: state.login.role
     };
 }
 
@@ -24,6 +26,12 @@ export class Seller extends Component {
     logout() {
         this.props.logout();
         this.props.router.push("/");
+    }
+
+    componentDidMount() {
+        if (!this.props.token || this.props.role !== ROLE_SELLER) {
+            this.props.router.push("/");
+        }
     }
 
     componentDidUpdate() {
