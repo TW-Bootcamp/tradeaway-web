@@ -12,6 +12,7 @@ import "bootstrap-material-design/dist/js/material.js";
 import 'bootstrap-material-design/dist/js/ripples.js';
 import './styles/index.css';
 import './styles/Login.css';
+import './styles/EmailVerification.css';
 
 
 import {createAppStore} from './store/store';

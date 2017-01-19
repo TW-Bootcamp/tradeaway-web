@@ -5,6 +5,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Seller from './components/Seller';
 import Buyer from './components/Buyer';
+import EmailVerification from './components/EmailVerification';
 
 export default (
     <Route path="/" component={App}>
@@ -12,5 +13,6 @@ export default (
         <Route path="signup" component={Signup}/>
         <Route path="seller" component={Seller}/>
         <Route path="buyer" component={Buyer}/>
+        <Route path="verify" component={EmailVerification}/>
     </Route>
 );

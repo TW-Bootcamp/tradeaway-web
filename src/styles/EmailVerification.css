@@ -1,0 +1,10 @@
+.email-verification{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.email-verfication-area{
+    display: flex;
+    justify-content: flex-start;
+}
