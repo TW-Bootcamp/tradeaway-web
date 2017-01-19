@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {HOME_PAGE} from '../constants/Route';
+import {INDEX_ROUTE} from '../constants/Route';
 
 import * as emailVerifyActions from '../actions/EmailVerifyActions'
 
@@ -33,7 +33,7 @@ export class EmailVerification extends Component {
 
     componentDidUpdate() {
         if (this.props.verifyState.success) {
-            this.props.router.push(HOME_PAGE);
+            this.props.router.push(INDEX_ROUTE);
         } else {
             alert("Email Verification failed!!");
         }
