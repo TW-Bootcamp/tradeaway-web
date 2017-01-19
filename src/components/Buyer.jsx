@@ -53,14 +53,22 @@ export class Buyer extends Component {
     render() {
 
         return (
-            <div>
+            <div className="buyer-categories-box">
                 <h3>Welcome Buyer!</h3>
-
-                <select>
-                    {this.buyer()}
-                </select>
                 <br/>
                 <button onClick={this.logout.bind(this)}>Logout</button>
+
+                <form className="form-horizontal">
+                <div className="form-group">
+                    <label htmlFor="s1" className="col-md-4 control-label">Category</label>
+                    <div className="col-md-8">
+                    <select id="s1" className="form-control">
+                        <option value={-1}>Select Category</option>
+                        {this.buyer()}
+                    </select>
+                    </div>
+                </div>
+                </form>
 
             </div>
         );
