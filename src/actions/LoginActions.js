@@ -49,7 +49,3 @@ export function user(token) {
             .catch((error) => dispatch(userFailure(error.response && error.response.data && error.response.data.message)));
     });
 }
-
-export function tryLogin() {
-    return dispatch(tryLogin());
-}
