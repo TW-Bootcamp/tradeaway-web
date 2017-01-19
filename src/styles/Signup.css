@@ -17,3 +17,7 @@
     content:"*";
     color:red;
 }
+
+.error-text{
+    color: red;
+}

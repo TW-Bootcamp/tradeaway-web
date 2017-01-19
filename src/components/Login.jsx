@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import {ROLE_BUYER, ROLE_SELLER} from '../constants/User';
 import {BUYER_LANDING_PAGE, SELLER_LANDING_PAGE} from '../constants/Route';
 
-import * as loginActions from '../actions/LoginActions'
+import * as loginActions from '../actions/LoginActions';
 
 
 function stateToProps(state) {
@@ -29,6 +29,10 @@ export class Login extends Component {
         e.preventDefault();
         let payload = {username: this.refs.username.value, password: this.refs.password.value};
         this.props.loginActions.login(payload);
+    }
+
+    componentDidMount() {
+        this.props.loginActions.localLogin();
     }
 
     componentDidUpdate() {
