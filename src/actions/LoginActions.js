@@ -1,6 +1,7 @@
 /* src/actions/LoginActions.js */
 import axios from 'axios';
 import * as types from '../constants/ActionTypes';
+import endpoints from '../config/apiConfig';
 
 export function localLogin() {
     return {
@@ -39,7 +40,7 @@ export function userFailure(message) {
 }
 export function login(userDetails) {
     return ((dispatch) => {
-        return axios.post('/api/auth', userDetails)
+        return axios.post(endpoints.auth, userDetails)
             .then((response) => dispatch(loginSuccess(response.data)))
             .catch((error) => dispatch(loginFailed(error.response && error.response.data && error.response.data.message)))
     });

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as types from '../constants/ActionTypes';
+import endpoints from '../config/apiConfig';
 
 export function signupSuccess(data) {
   return {
@@ -15,7 +16,7 @@ export function signupFailed(data) {
 }
 export function signup(userDetails) {
   return ((dispatch) => {
-    axios.post('/api/users/register', userDetails)
+    axios.post(endpoints.register, userDetails)
       .then((response) => dispatch(signupSuccess(response.data)))
       .catch((error) => dispatch(signupFailed(error.data)))
   });

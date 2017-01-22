@@ -22,6 +22,7 @@
     "image-webpack-loader": "^3.1.0",
     "install-peerdeps": "^1.1.2",
     "jest": "^18.1.0",
+    "json-server": "^0.9.4",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.8.5",
     "redux-mock-store": "^1.2.1",
@@ -43,8 +44,9 @@
     "redux-thunk": "^2.1.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "NODE_ENV=dev && webpack-dev-server",
     "test": "jest",
-    "build": "webpack"
+    "build": "webpack",
+    "mock": "cd mock && node jsonServer"
   }
 }
